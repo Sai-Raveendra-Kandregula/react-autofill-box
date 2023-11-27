@@ -1,20 +1,23 @@
 {
   "name": "react-auto-fill-box",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
     ]
   },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "keywords": [
+    "react", "reactjs", "autofill", "autocomplete", "input", "field", "component", "form", "ui", "library", "javascript", "js"
+  ],
+  "description": "A simple Autofill/Autocomplete component for ReactJS.",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Sai-Raveendra-Kandregula/react-autofill-box.git"
   },
   "author": "Sai Raveendra Kandregula",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Sai-Raveendra-Kandregula/react-autofill-box/issues"
   },

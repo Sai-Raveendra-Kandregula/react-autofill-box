@@ -1,5 +1,7 @@
 # React AutoFill Box
 
+A simple Autofill/Autocomplete component for ReactJS.
+
 ## Installation
 
 To install, run
@@ -40,9 +42,6 @@ const [selectionValues, setSelectionValues] = useState([])
 export default App;
 
 ```
-
-#### Preview
-![Example Preview](preview.png)
 
 ### API
 
