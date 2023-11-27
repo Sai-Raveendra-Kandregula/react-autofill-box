@@ -1,0 +1,104 @@
+.autoCompleteBox {
+    box-sizing: border-box;
+    font-size: 0.9em;
+    position: relative;
+    background: white;
+    color: black;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.selectedItems {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.autoCompleteBoxItem {
+    box-sizing: border-box;
+    max-width: 100%;
+    height: 2em;
+    font-size: 1em;
+    background: white;
+    color: black;
+    padding: 5px;
+    border: 1px solid #fff;
+    padding: 5px 0.75em;
+    display: flex;
+    align-items: center;
+    border-radius: 1em;
+    gap: 10px;
+    white-space: nowrap;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    user-select: none;
+}
+
+.autoCompleteBoxItemValue {
+    flex: 1;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.autoCompleteBoxItem .close {
+    width: 1.5em;
+    height: 1.5em;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.inputField {
+    box-sizing: border-box;
+    min-width: 20px;
+    height: 2em;
+    line-height: 2em;
+    flex: 1;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    outline: none;
+    text-align: left;
+}
+
+.inputField>div>br {
+    position: absolute;
+}
+
+.optionsSuggestionList {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 10px;
+    color: black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch
+}
+
+.optionsListItem {
+    border: none;
+    border-radius: 0;
+    padding: 10px;
+}
+
+.optionsListItem:hover {
+    background: rgba(0, 0, 0, 0.25);
+}

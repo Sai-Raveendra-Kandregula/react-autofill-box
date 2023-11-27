@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# React AutoFill Box
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Installation
 
-## Available Scripts
+To install, run
 
-In the project directory, you can run:
+```
+npm i react-auto-fill-box
+```
 
-### `npm start`
+## Usage
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Example
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Code
 
-### `npm test`
+```js
+import AutoFillBox from 'react-auto-fill-box';
+import { useEffect, useState } from 'react';
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+function App() {
+const [selectionValues, setSelectionValues] = useState([])
 
-### `npm run build`
+  useEffect(()=>{
+    console.log(selectionValues)
+  }, [selectionValues])
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  return (
+    <div className="App">
+      <header className="App-header">
+        <AutoFillBox onSelectionUpdate={setSelectionValues} width="500px" optionsList={[
+          'Option 1',
+          'Option 2'
+        ]} />
+      </header>
+    </div>
+  );
+}
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+export default App;
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
 
-### `npm run eject`
+#### Preview
+![Example Preview](preview.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### API
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| Name | Type | Default | Description |
+| ---- | ---- | ---- | ---- |
+| `className` | `string` | -- | Additional Class Name for AutoFillBox. This does **NOT** override the default styles, only appends to them.  |
+| `selectedOptionClassName` | `string` | -- | Additional Class Name for AutoFillBox Item. This does **NOT** override the default styles, only appends to them. |
+| `optionsList` | `string[]` | `[]` | A List of Values for the user to choose from. By default, values other than those in this `optionList` are also accepted. To prevent this behaviour, modify the function passed through `customValueValidator` accordingly. |
+| `onSelectionUpdate` | `function` | `undefined` | A callback which is to be run whenever the selected options are updated. The selected entries are passed as a `string[]` parameter to the function. <br />**WARNING :** If you don't use this callback you will not be able to access the selected values. |
+| `customValueValidator` | `function` | `(value) => true` | A Function to validate custom entries that are not present in `optionsList`. Must return `true` for a valid entry, and `false` otherwise. This can be useful in a scenario such as an email input field, where you have contacts, but also other email address as valid entries. <br /> **NOTE :** Pass an empty function that returns `false` to prevent custom values. |
+| `selectorKeys` | `string[]` | `["Enter", "Tab"]` | The keyboard keys to be used for validating and accepting an option. <br /> **WARNING :** Using the keys here overrides the default behaviour of the keys, so choose them wisely. |
+| `width` | `string` | `"auto"` | Width of the AutoFill Box. Alternatively you can specific width in a class name and assign that class name to `className` property. (You might need to mark the width CSS property as `!important`) |
